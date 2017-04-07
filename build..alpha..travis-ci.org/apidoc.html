@@ -1,0 +1,2454 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/balderdashy/sails-mongo#readme"
+
+    >sails-mongo (v0.12.2)</a>
+</h1>
+<h4>Mongo DB adapter for Sails.js</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-mongo">module sails-mongo</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">sails-mongo.</span>syncable</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.collection">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>collection
+            <span class="apidocSignatureSpan">(definition, connection)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.connection">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>connection
+            <span class="apidocSignatureSpan">(config, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.count">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>count
+            <span class="apidocSignatureSpan">(connectionName, collectionName, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.create">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>create
+            <span class="apidocSignatureSpan">(connectionName, collectionName, data, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.createEach">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>createEach
+            <span class="apidocSignatureSpan">(connectionName, collectionName, data, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.define">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>define
+            <span class="apidocSignatureSpan">(connectionName, collectionName, definition, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.describe">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>describe
+            <span class="apidocSignatureSpan">(connectionName, collectionName, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.destroy">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>destroy
+            <span class="apidocSignatureSpan">(connectionName, collectionName, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.document">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>document
+            <span class="apidocSignatureSpan">(values, schema)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.drop">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>drop
+            <span class="apidocSignatureSpan">(connectionName, collectionName, relations, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.find">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>find
+            <span class="apidocSignatureSpan">(connectionName, collectionName, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.join">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>join
+            <span class="apidocSignatureSpan">(connectionName, collectionName, criteria, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.native">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>native
+            <span class="apidocSignatureSpan">(connectionName, collectionName, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.registerConnection">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>registerConnection
+            <span class="apidocSignatureSpan">(connection, collections, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.stream">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>stream
+            <span class="apidocSignatureSpan">(connectionName, collectionName, options, stream)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.teardown">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>teardown
+            <span class="apidocSignatureSpan">(conn, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.update">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>update
+            <span class="apidocSignatureSpan">(connectionName, collectionName, options, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-mongo.</span>collection.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-mongo.</span>connection.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-mongo.</span>defaults</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-mongo.</span>document.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-mongo.</span>mongo</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-mongo.</span>utils</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">sails-mongo.</span>identity</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">sails-mongo.</span>pkFormat</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-mongo.collection">module sails-mongo.collection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.collection.collection">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>collection
+            <span class="apidocSignatureSpan">(definition, connection)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-mongo.collection.prototype">module sails-mongo.collection.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.collection.prototype._buildIndexes">
+            function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>_buildIndexes
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.collection.prototype._getPK">
+            function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>_getPK
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.collection.prototype._parseDefinition">
+            function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>_parseDefinition
+            <span class="apidocSignatureSpan">(definition)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.collection.prototype.count">
+            function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>count
+            <span class="apidocSignatureSpan">(criteria, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.collection.prototype.destroy">
+            function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>destroy
+            <span class="apidocSignatureSpan">(criteria, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.collection.prototype.find">
+            function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>find
+            <span class="apidocSignatureSpan">(criteria, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.collection.prototype.insert">
+            function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>insert
+            <span class="apidocSignatureSpan">(values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.collection.prototype.stream">
+            function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>stream
+            <span class="apidocSignatureSpan">(criteria, stream)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.collection.prototype.update">
+            function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>update
+            <span class="apidocSignatureSpan">(criteria, values, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-mongo.connection">module sails-mongo.connection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.connection.connection">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>connection
+            <span class="apidocSignatureSpan">(config, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-mongo.connection.prototype">module sails-mongo.connection.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.connection.prototype._buildConnection">
+            function <span class="apidocSignatureSpan">sails-mongo.connection.prototype.</span>_buildConnection
+            <span class="apidocSignatureSpan">(cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.connection.prototype._ensureIndexes">
+            function <span class="apidocSignatureSpan">sails-mongo.connection.prototype.</span>_ensureIndexes
+            <span class="apidocSignatureSpan">(collection, indexes, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.connection.prototype.createCollection">
+            function <span class="apidocSignatureSpan">sails-mongo.connection.prototype.</span>createCollection
+            <span class="apidocSignatureSpan">(name, collection, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.connection.prototype.dropCollection">
+            function <span class="apidocSignatureSpan">sails-mongo.connection.prototype.</span>dropCollection
+            <span class="apidocSignatureSpan">(name, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-mongo.document">module sails-mongo.document</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.document.document">
+            function <span class="apidocSignatureSpan">sails-mongo.</span>document
+            <span class="apidocSignatureSpan">(values, schema)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-mongo.document.prototype">module sails-mongo.document.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.document.prototype.normalizeId">
+            function <span class="apidocSignatureSpan">sails-mongo.document.prototype.</span>normalizeId
+            <span class="apidocSignatureSpan">(values)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.document.prototype.serializeValues">
+            function <span class="apidocSignatureSpan">sails-mongo.document.prototype.</span>serializeValues
+            <span class="apidocSignatureSpan">(values)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.document.prototype.setValues">
+            function <span class="apidocSignatureSpan">sails-mongo.document.prototype.</span>setValues
+            <span class="apidocSignatureSpan">(values)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-mongo.mongo">module sails-mongo.mongo</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.mongo.objectId">
+            function <span class="apidocSignatureSpan">sails-mongo.mongo.</span>objectId
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-mongo.utils">module sails-mongo.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.utils._rewriteIds">
+            function <span class="apidocSignatureSpan">sails-mongo.utils.</span>_rewriteIds
+            <span class="apidocSignatureSpan">(model, schema)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.utils.caseInsensitive">
+            function <span class="apidocSignatureSpan">sails-mongo.utils.</span>caseInsensitive
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.utils.clarifyError">
+            function <span class="apidocSignatureSpan">sails-mongo.utils.</span>clarifyError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.utils.matchMongoId">
+            function <span class="apidocSignatureSpan">sails-mongo.utils.</span>matchMongoId
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.utils.normalizeResults">
+            function <span class="apidocSignatureSpan">sails-mongo.utils.</span>normalizeResults
+            <span class="apidocSignatureSpan">(models, schema)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.utils.parseUrl">
+            function <span class="apidocSignatureSpan">sails-mongo.utils.</span>parseUrl
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-mongo.utils.rewriteIds">
+            function <span class="apidocSignatureSpan">sails-mongo.utils.</span>rewriteIds
+            <span class="apidocSignatureSpan">(models, schema)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-mongo.utils.</span>object</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-mongo" id="apidoc.module.sails-mongo">module sails-mongo</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.collection" id="apidoc.element.sails-mongo.collection">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>collection
+        <span class="apidocSignatureSpan">(definition, connection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Collection(definition, connection) {
+
+  // Set an identity for this collection
+  this.identity = &#x27;&#x27;;
+
+  // Hold Schema Information
+  this.schema = null;
+
+  // Hold a reference to an active connection
+  this.connection = connection;
+
+  // Hold the config object
+  var connectionConfig = connection.config || {};
+  this.config = _.extend({}, connectionConfig.wlNext);
+
+  // Hold Indexes
+  this.indexes = [];
+
+  // Parse the definition into collection attributes
+  this._parseDefinition(definition);
+
+  // Build an indexes dictionary
+  this._buildIndexes();
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Catch errors from building query and return to the callback
+try {
+  query = new Query(criteria, this.schema, this.config);
+} catch(err) {
+  return cb(err);
+}
+
+var collection = this.connection.db.<span class="apidocCodeKeywordSpan">collection</span>(self.identity);
+
+// Check for aggregate query
+if(query.aggregate) {
+  var aggregate = [
+    { &#x27;$match&#x27;: query.criteria.where || {} },
+    { &#x27;$group&#x27;: query.aggregateGroup }
+  ];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.connection" id="apidoc.element.sails-mongo.connection">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>connection
+        <span class="apidocSignatureSpan">(config, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Connection(config, cb) {
+  var self = this;
+
+  // Hold the config object
+  this.config = config || {};
+
+  // Build Database connection
+  this._buildConnection(function(err, db) {
+    if(err) return cb(err);
+    if(!db) return cb(new Error(&#x27;no db object&#x27;));
+
+    // Store the DB object
+    self.db = db;
+
+    // Return the connection
+    cb(null, self);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.count" id="apidoc.element.sails-mongo.count">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>count
+        <span class="apidocSignatureSpan">(connectionName, collectionName, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">count = function (connectionName, collectionName, options, cb) {
+  options = options || {};
+  var connectionObject = connections[connectionName];
+  var collection = connectionObject.collections[collectionName];
+
+  // Find matching documents and return the count
+  collection.count(options, function(err, results) {
+    if(err) return cb(err);
+    cb(null, results);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Catch errors build query and return to the callback
+  try {
+    query = new Query(criteria, this.schema, this.config);
+  } catch(err) {
+    return cb(err);
+  }
+
+  this.connection.db.collection(this.identity).<span class="apidocCodeKeywordSpan">count</span>(query.criteria.where, function(err
+, count) {
+    if (err) return cb(err);
+    cb(null, count);
+  });
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.create" id="apidoc.element.sails-mongo.create">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>create
+        <span class="apidocSignatureSpan">(connectionName, collectionName, data, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (connectionName, collectionName, data, cb) {
+
+  var connectionObject = connections[connectionName];
+  var collection = connectionObject.collections[collectionName];
+
+  // Insert a new document into the collection
+  collection.insert(data, function(err, results) {
+    if(err) return cb(utils.clarifyError(err));
+    cb(null, results[0]);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.createEach" id="apidoc.element.sails-mongo.createEach">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>createEach
+        <span class="apidocSignatureSpan">(connectionName, collectionName, data, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">createEach = function (connectionName, collectionName, data, cb) {
+
+  if (data.length === 0) {return cb(null, []);}
+
+  var connectionObject = connections[connectionName];
+  var collection = connectionObject.collections[collectionName];
+
+  // Insert a new document into the collection
+  collection.insert(data, function(err, results) {
+    if(err) return cb(utils.clarifyError(err));
+    cb(null, results);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.define" id="apidoc.element.sails-mongo.define">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>define
+        <span class="apidocSignatureSpan">(connectionName, collectionName, definition, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">define = function (connectionName, collectionName, definition, cb) {
+
+  var connectionObject = connections[connectionName];
+  var collection = connectionObject.collections[collectionName];
+
+  // Create the collection and indexes
+  connectionObject.connection.createCollection(collectionName, collection, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.describe" id="apidoc.element.sails-mongo.describe">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>describe
+        <span class="apidocSignatureSpan">(connectionName, collectionName, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">describe = function (connectionName, collectionName, cb) {
+
+  var connectionObject = connections[connectionName];
+  var collection = connectionObject.collections[collectionName];
+  var schema = collection.schema;
+  var names = connectionObject.connection.db.listCollections(collectionName);
+  if(names.length &#x3e; 0) return cb(null, schema);
+  cb();
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.destroy" id="apidoc.element.sails-mongo.destroy">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>destroy
+        <span class="apidocSignatureSpan">(connectionName, collectionName, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (connectionName, collectionName, options, cb) {
+  options = options || {};
+  var connectionObject = connections[connectionName];
+  var collection = connectionObject.collections[collectionName];
+
+  // Find matching documents
+  collection.find(options, function(err, results) {
+    if(err) return cb(err);
+
+    // Destroy matching documents
+    collection.destroy(options, function(err) {
+      if(err) return cb(err);
+      cb(null, results);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.document" id="apidoc.element.sails-mongo.document">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>document
+        <span class="apidocSignatureSpan">(values, schema)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Document(values, schema) {
+
+  // Keep track of the current document&#x27;s values
+  this.values = {};
+
+  // Grab the schema for normalizing values
+  this.schema = schema || {};
+
+  // If values were passed in, use the setter
+  if(values) this.values = this.setValues(values);
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.drop" id="apidoc.element.sails-mongo.drop">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>drop
+        <span class="apidocSignatureSpan">(connectionName, collectionName, relations, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">drop = function (connectionName, collectionName, relations, cb) {
+
+  if(typeof relations === &#x27;function&#x27;) {
+    cb = relations;
+    relations = [];
+  }
+
+  var connectionObject = connections[connectionName];
+  var collection = connectionObject.collections[collectionName];
+
+  // Drop the collection and indexes
+  connectionObject.connection.dropCollection(collectionName, function(err) {
+
+    // Don&#x27;t error if droping a collection which doesn&#x27;t exist
+    if(err &#x26;&#x26; err.errmsg === &#x27;ns not found&#x27;) return cb();
+    if(err) return cb(err);
+    cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.find" id="apidoc.element.sails-mongo.find">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>find
+        <span class="apidocSignatureSpan">(connectionName, collectionName, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function (connectionName, collectionName, options, cb) {
+  options = options || {};
+  var connectionObject = connections[connectionName];
+  var collection = connectionObject.collections[collectionName];
+
+  // Find all matching documents
+  collection.find(options, function(err, results) {
+    if(err) return cb(err);
+    cb(null, results);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   });
+ }
+
+ var where = query.criteria.where || {};
+ var queryOptions = _.omit(query.criteria, &#x27;where&#x27;);
+
+ // Run Normal Query on collection
+ collection.<span class="apidocCodeKeywordSpan">find</span>(where, query.select, queryOptions).toArray(function(err, docs) {
+   if(err) return cb(err);
+   cb(null, utils.normalizeResults(docs, self.schema));
+ });
+};
+
+/**
+* Stream Documents
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.join" id="apidoc.element.sails-mongo.join">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>join
+        <span class="apidocSignatureSpan">(connectionName, collectionName, criteria, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">join = function (connectionName, collectionName, criteria, cb) {
+
+  // Ignore `select` from waterline core
+  if (typeof criteria === &#x27;object&#x27;) {
+    delete criteria.select;
+  }
+
+  var connectionObject = connections[connectionName];
+  var collection = connectionObject.collections[collectionName];
+
+  // Populate associated records for each parent result
+  // (or do them all at once as an optimization, if possible)
+  _runJoins({
+
+    instructions: criteria,
+    parentCollection: collectionName,
+
+<span class="apidocCodeCommentSpan">    /**
+     * Find some records directly (using only this adapter)
+     * from the specified collection.
+     *
+     * @param  {String}   collectionIdentity
+     * @param  {Object}   criteria
+     * @param  {Function} cb
+     */
+</span>    $find: function (collectionIdentity, criteria, cb) {
+      var connectionObject = connections[connectionName];
+      var collection = connectionObject.collections[collectionIdentity];
+      return collection.find(criteria, cb);
+    },
+
+    /**
+     * Look up the name of the primary key field
+     * for the collection with the specified identity.
+     *
+     * @param  {String}   collectionIdentity
+     * @return {String}
+     */
+    $getPK: function (collectionIdentity) {
+      if (!collectionIdentity) return;
+      var connectionObject = connections[connectionName];
+      if (!connectionObject) {
+        throw new Error(&#x27;Consistency violation in sails-mongo: Unrecognized datastore (i.e. connection): `&#x27;+connectionName+&#x27;`.&#x27;);
+      }
+      var collection = connectionObject.collections[collectionIdentity];
+      if (!collection) {
+        throw new Error(&#x27;Consistency violation in sails-mongo: Unrecognized collection: `&#x27;+collectionIdentity+&#x27;` in datastore (i
+.e. connection): `&#x27;+connectionName+&#x27;`.&#x27;);
+      }
+      return collection._getPK();
+    }
+  }, cb);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.native" id="apidoc.element.sails-mongo.native">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>native
+        <span class="apidocSignatureSpan">(connectionName, collectionName, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">native = function (connectionName, collectionName, cb) {
+
+  var connectionObject = connections[connectionName];
+  cb(null, connectionObject.connection.db.collection(collectionName));
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.registerConnection" id="apidoc.element.sails-mongo.registerConnection">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>registerConnection
+        <span class="apidocSignatureSpan">(connection, collections, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerConnection = function (connection, collections, cb) {
+  if(!connection.identity) return cb(Errors.IdentityMissing);
+  if(connections[connection.identity]) return cb(Errors.IdentityDuplicate);
+
+  // Merging default options
+  connection = _.defaults(connection, this.defaults);
+
+  // Store the connection
+  connections[connection.identity] = {
+    config: connection,
+    collections: {}
+  };
+
+  // Create a new active connection
+  new Connection(connection, function(_err, db) {
+
+    if(_err) {
+      return cb((function _createError(){
+        var msg = util.format(&#x27;Failed to connect to MongoDB.  Are you sure your configured Mongo instance is running?\n Error details
+:\n%s&#x27;, util.inspect(_err, false, null));
+        var err = new Error(msg);
+        err.originalError = _err;
+        return err;
+      })());
+    }
+    connections[connection.identity].connection = db;
+
+    // Build up a registry of collections
+    Object.keys(collections).forEach(function(key) {
+      connections[connection.identity].collections[key] = new Collection(collections[key], db);
+    });
+
+    cb();
+  });
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.stream" id="apidoc.element.sails-mongo.stream">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>stream
+        <span class="apidocSignatureSpan">(connectionName, collectionName, options, stream)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stream = function (connectionName, collectionName, options, stream) {
+  options = options || {};
+  var connectionObject = connections[connectionName];
+  var collection = connectionObject.collections[collectionName];
+
+  collection.stream(options, stream);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  var collection = this.connection.db.collection(self.identity);
+
+  var where = query.criteria.where || {};
+  var queryOptions = _.omit(query.criteria, &#x27;where&#x27;);
+
+  // Run Normal Query on collection
+  var dbStream = collection.find(where, queryOptions).<span class="apidocCodeKeywordSpan">stream</span>();
+
+  // For each data item
+  dbStream.on(&#x27;data&#x27;, function(item) {
+// Pause stream
+dbStream.pause();
+
+var obj = utils.rewriteIds([item], self.schema)[0];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.teardown" id="apidoc.element.sails-mongo.teardown">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>teardown
+        <span class="apidocSignatureSpan">(conn, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">teardown = function (conn, cb) {
+  if (typeof conn == &#x27;function&#x27;) {
+    cb = conn;
+    conn = null;
+  }
+
+  if (conn === null) {
+    var _connections = _.pluck(_.values(connections), &#x27;connection&#x27;);
+    if(!_connections.length) { return cb(); }
+
+    var dbs = _.pluck(_connections, &#x27;db&#x27;);
+    if(!dbs.length) { return cb(); }
+
+    connections = {};
+    return async.each(dbs, function (db, onClosed) {
+      if(db === undefined) { return onClosed(); }
+      db.close(onClosed);
+    }, cb);
+  }
+
+  if(!connections[conn]) return cb();
+
+  var dbConnection = connections[conn].connection.db;
+  dbConnection.close(function () {
+    delete connections[conn];
+    cb();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.update" id="apidoc.element.sails-mongo.update">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>update
+        <span class="apidocSignatureSpan">(connectionName, collectionName, options, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (connectionName, collectionName, options, values, cb) {
+  options = options || {};
+  var connectionObject = connections[connectionName];
+  var collection = connectionObject.collections[collectionName];
+
+  // Update matching documents
+  collection.update(options, values, function(err, results) {
+    if(err) return cb(utils.clarifyError(err));
+    cb(null, results);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var updatedRecords = [];
+
+    records.forEach(function(record) {
+updatedRecords.push(record._id);
+    });
+
+    // Update the records
+    collection.<span class="apidocCodeKeywordSpan">update</span>(query.criteria.where, { &#x27;$set&#x27;: values }, { multi: true
+ }, function(err, result) {
+if(err) return cb(err);
+
+// Look up newly inserted records to return the results of the update
+collection.find({ _id: { &#x27;$in&#x27;: updatedRecords }}).toArray(function(err, records) {
+  if(err) return cb(err);
+  cb(null, utils.rewriteIds(records, self.schema));
+});
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-mongo.collection" id="apidoc.module.sails-mongo.collection">module sails-mongo.collection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.collection.collection" id="apidoc.element.sails-mongo.collection.collection">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>collection
+        <span class="apidocSignatureSpan">(definition, connection)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Collection(definition, connection) {
+
+  // Set an identity for this collection
+  this.identity = &#x27;&#x27;;
+
+  // Hold Schema Information
+  this.schema = null;
+
+  // Hold a reference to an active connection
+  this.connection = connection;
+
+  // Hold the config object
+  var connectionConfig = connection.config || {};
+  this.config = _.extend({}, connectionConfig.wlNext);
+
+  // Hold Indexes
+  this.indexes = [];
+
+  // Parse the definition into collection attributes
+  this._parseDefinition(definition);
+
+  // Build an indexes dictionary
+  this._buildIndexes();
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Catch errors from building query and return to the callback
+try {
+  query = new Query(criteria, this.schema, this.config);
+} catch(err) {
+  return cb(err);
+}
+
+var collection = this.connection.db.<span class="apidocCodeKeywordSpan">collection</span>(self.identity);
+
+// Check for aggregate query
+if(query.aggregate) {
+  var aggregate = [
+    { &#x27;$match&#x27;: query.criteria.where || {} },
+    { &#x27;$group&#x27;: query.aggregateGroup }
+  ];
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-mongo.collection.prototype" id="apidoc.module.sails-mongo.collection.prototype">module sails-mongo.collection.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.collection.prototype._buildIndexes" id="apidoc.element.sails-mongo.collection.prototype._buildIndexes">
+        function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>_buildIndexes
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _buildIndexes() {
+  var self = this;
+
+  Object.keys(this.schema).forEach(function(key) {
+    var index = {};
+    var options = {};
+
+    // If index key is `id` ignore it because Mongo will automatically handle this
+    if(key === &#x27;id&#x27;) {
+      return;
+    }
+
+    // Handle Unique Indexes
+    if(self.schema[key].unique) {
+
+      // Set the index sort direction, doesn&#x27;t matter for single key indexes
+      index[key] = 1;
+
+      // Set the index options
+      options.sparse = true;
+      options.unique = true;
+
+      // Store the index in the collection
+      self.indexes.push({ index: index, options: options });
+      return;
+    }
+
+    // Handle non-unique indexes
+    if(self.schema[key].index) {
+
+      // Set the index sort direction, doesn&#x27;t matter for single key indexes
+      index[key] = 1;
+
+      // Set the index options
+      options.sparse = true;
+
+      // Store the index in the collection
+      self.indexes.push({ index: index, options: options });
+      return;
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Hold Indexes
+  this.indexes = [];
+
+  // Parse the definition into collection attributes
+  this._parseDefinition(definition);
+
+  // Build an indexes dictionary
+  this.<span class="apidocCodeKeywordSpan">_buildIndexes</span>();
+
+  return this;
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////
+// PUBLIC METHODS
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.collection.prototype._getPK" id="apidoc.element.sails-mongo.collection.prototype._getPK">
+        function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>_getPK
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _getPK() {
+  var self = this;
+  var pk;
+
+  _.keys(this.schema).forEach(function(key) {
+    if(self.schema[key].primaryKey) pk = key;
+  });
+
+  if(!pk) pk = &#x27;id&#x27;;
+  return pk;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.collection.prototype._parseDefinition" id="apidoc.element.sails-mongo.collection.prototype._parseDefinition">
+        function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>_parseDefinition
+        <span class="apidocSignatureSpan">(definition)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _parseDefinition(definition) {
+  var self = this;
+
+  // Hold the Schema
+  this.schema = _.cloneDeep(definition.definition);
+
+  if (_.has(this.schema, &#x27;id&#x27;) &#x26;&#x26; this.schema.id.primaryKey &#x26;&#x26; this.schema.id.type === &#x27;integer&#x27;) {
+    this.schema.id.type = &#x27;objectid&#x27;;
+  }
+
+  // Remove any Auto-Increment Keys, Mongo currently doesn&#x27;t handle this well without
+  // creating additional collection for keeping track of the increment values
+  Object.keys(this.schema).forEach(function(key) {
+    if(self.schema[key].autoIncrement) delete self.schema[key].autoIncrement;
+  });
+
+  // Replace any foreign key value types with ObjectId
+  Object.keys(this.schema).forEach(function(key) {
+    if(self.schema[key].foreignKey) {
+      self.schema[key].type = &#x27;objectid&#x27;;
+    }
+  });
+
+  // Set the identity
+	var ident = definition.tableName ? definition.tableName : definition.identity.toLowerCase();
+	this.identity = _.clone(ident);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var connectionConfig = connection.config || {};
+  this.config = _.extend({}, connectionConfig.wlNext);
+
+  // Hold Indexes
+  this.indexes = [];
+
+  // Parse the definition into collection attributes
+  this.<span class="apidocCodeKeywordSpan">_parseDefinition</span>(definition);
+
+  // Build an indexes dictionary
+  this._buildIndexes();
+
+  return this;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.collection.prototype.count" id="apidoc.element.sails-mongo.collection.prototype.count">
+        function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>count
+        <span class="apidocSignatureSpan">(criteria, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function count(criteria, cb) {
+
+  var self = this;
+  var query;
+
+  // Ignore `select` from waterline core
+  if (typeof criteria === &#x27;object&#x27;) {
+    delete criteria.select;
+  }
+
+  // Catch errors build query and return to the callback
+  try {
+    query = new Query(criteria, this.schema, this.config);
+  } catch(err) {
+    return cb(err);
+  }
+
+  this.connection.db.collection(this.identity).count(query.criteria.where, function(err, count) {
+    if (err) return cb(err);
+    cb(null, count);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Catch errors build query and return to the callback
+  try {
+    query = new Query(criteria, this.schema, this.config);
+  } catch(err) {
+    return cb(err);
+  }
+
+  this.connection.db.collection(this.identity).<span class="apidocCodeKeywordSpan">count</span>(query.criteria.where, function(err
+, count) {
+    if (err) return cb(err);
+    cb(null, count);
+  });
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.collection.prototype.destroy" id="apidoc.element.sails-mongo.collection.prototype.destroy">
+        function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>destroy
+        <span class="apidocSignatureSpan">(criteria, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function destroy(criteria, cb) {
+  var self = this,
+      query;
+
+  // Ignore `select` from waterline core
+  if (typeof criteria === &#x27;object&#x27;) {
+    delete criteria.select;
+  }
+
+  // Catch errors build query and return to the callback
+  try {
+    query = new Query(criteria, this.schema, this.config);
+  } catch(err) {
+    return cb(err);
+  }
+
+  var collection = this.connection.db.collection(self.identity);
+  collection.remove(query.criteria.where, function(err, results) {
+    if(err) return cb(err);
+
+    // Force to array to meet Waterline API
+    var resultsArray = [];
+
+    // If result is not an array return an array
+    if(!Array.isArray(results)) {
+      resultsArray.push({ id: results });
+      return cb(null, resultsArray);
+    }
+
+    // Create a valid array of IDs
+    results.forEach(function(result) {
+      resultsArray.push({ id: result });
+    });
+
+    cb(null, utils.rewriteIds(resultArray, self.schema));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.collection.prototype.find" id="apidoc.element.sails-mongo.collection.prototype.find">
+        function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>find
+        <span class="apidocSignatureSpan">(criteria, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function find(criteria, cb) {
+  var self = this,
+      query;
+
+  // Catch errors from building query and return to the callback
+  try {
+    query = new Query(criteria, this.schema, this.config);
+  } catch(err) {
+    return cb(err);
+  }
+
+  var collection = this.connection.db.collection(self.identity);
+
+  // Check for aggregate query
+  if(query.aggregate) {
+    var aggregate = [
+      { &#x27;$match&#x27;: query.criteria.where || {} },
+      { &#x27;$group&#x27;: query.aggregateGroup }
+    ];
+
+    return collection.aggregate(aggregate, function(err, results) {
+
+      // Results have grouped by values under _id, so we extract them
+      var mapped = results.map(function(result) {
+        for(var key in result._id) {
+          result[key] = result._id[key];
+        }
+        delete result._id;
+        return result;
+      });
+
+      cb(err, mapped);
+    });
+  }
+
+  var where = query.criteria.where || {};
+  var queryOptions = _.omit(query.criteria, &#x27;where&#x27;);
+
+  // Run Normal Query on collection
+  collection.find(where, query.select, queryOptions).toArray(function(err, docs) {
+    if(err) return cb(err);
+    cb(null, utils.normalizeResults(docs, self.schema));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   });
+ }
+
+ var where = query.criteria.where || {};
+ var queryOptions = _.omit(query.criteria, &#x27;where&#x27;);
+
+ // Run Normal Query on collection
+ collection.<span class="apidocCodeKeywordSpan">find</span>(where, query.select, queryOptions).toArray(function(err, docs) {
+   if(err) return cb(err);
+   cb(null, utils.normalizeResults(docs, self.schema));
+ });
+};
+
+/**
+* Stream Documents
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.collection.prototype.insert" id="apidoc.element.sails-mongo.collection.prototype.insert">
+        function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>insert
+        <span class="apidocSignatureSpan">(values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function insert(values, cb) {
+
+  var self = this;
+
+  // Normalize values to an array
+  if(!Array.isArray(values)) values = [values];
+
+  // Build a Document and add the values to a new array
+  var docs = values.map(function(value) {
+    return new Document(value, self.schema).values;
+  });
+
+  this.connection.db.collection(this.identity).insert(docs, function(err, results) {
+    if(err) return cb(err);
+    cb(null, utils.rewriteIds(results.ops, self.schema));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ if(!Array.isArray(values)) values = [values];
+
+ // Build a Document and add the values to a new array
+ var docs = values.map(function(value) {
+   return new Document(value, self.schema).values;
+ });
+
+ this.connection.db.collection(this.identity).<span class="apidocCodeKeywordSpan">insert</span>(docs, function(err, results) {
+   if(err) return cb(err);
+   cb(null, utils.rewriteIds(results.ops, self.schema));
+ });
+};
+
+/**
+* Update Documents
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.collection.prototype.stream" id="apidoc.element.sails-mongo.collection.prototype.stream">
+        function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>stream
+        <span class="apidocSignatureSpan">(criteria, stream)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function find(criteria, stream) {
+  var self = this,
+    query;
+
+  // Ignore `select` from waterline core
+  if (typeof criteria === &#x27;object&#x27;) {
+    delete criteria.select;
+  }
+
+  // Catch errors from building query and return to the callback
+  try {
+    query = new Query(criteria, this.schema, this.config);
+  } catch(err) {
+    return stream.end(err); // End stream
+  }
+
+  var collection = this.connection.db.collection(self.identity);
+
+  var where = query.criteria.where || {};
+  var queryOptions = _.omit(query.criteria, &#x27;where&#x27;);
+
+  // Run Normal Query on collection
+  var dbStream = collection.find(where, queryOptions).stream();
+
+  // For each data item
+  dbStream.on(&#x27;data&#x27;, function(item) {
+    // Pause stream
+    dbStream.pause();
+
+    var obj = utils.rewriteIds([item], self.schema)[0];
+
+    stream.write(obj, function() {
+      dbStream.resume();
+    });
+
+  });
+
+  // Handle error, an &#x27;end&#x27; event will be emitted after this as well
+  dbStream.on(&#x27;error&#x27;, function(err) {
+    stream.end(err); // End stream
+  });
+
+  // all rows have been received
+  dbStream.on(&#x27;close&#x27;, function() {
+    stream.end();
+  });
+  // stream has ended
+  dbStream.on(&#x27;end&#x27;, function() {
+    stream.end();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  var collection = this.connection.db.collection(self.identity);
+
+  var where = query.criteria.where || {};
+  var queryOptions = _.omit(query.criteria, &#x27;where&#x27;);
+
+  // Run Normal Query on collection
+  var dbStream = collection.find(where, queryOptions).<span class="apidocCodeKeywordSpan">stream</span>();
+
+  // For each data item
+  dbStream.on(&#x27;data&#x27;, function(item) {
+// Pause stream
+dbStream.pause();
+
+var obj = utils.rewriteIds([item], self.schema)[0];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.collection.prototype.update" id="apidoc.element.sails-mongo.collection.prototype.update">
+        function <span class="apidocSignatureSpan">sails-mongo.collection.prototype.</span>update
+        <span class="apidocSignatureSpan">(criteria, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function update(criteria, values, cb) {
+  var self = this,
+      query;
+
+  // Ignore `select` from waterline core
+  if (typeof criteria === &#x27;object&#x27;) {
+    delete criteria.select;
+  }
+
+  // Catch errors build query and return to the callback
+  try {
+    query = new Query(criteria, this.schema, this.config);
+  } catch(err) {
+    return cb(err);
+  }
+
+  values = new Document(values, this.schema).values;
+
+  // Mongo doesn&#x27;t allow ID&#x27;s to be updated
+  if(values.id) delete values.id;
+  if(values._id) delete values._id;
+
+  var collection = this.connection.db.collection(self.identity);
+
+  // Lookup records being updated and grab their ID&#x27;s
+  // Useful for later looking up the record after an insert
+  // Required because options may not contain an ID
+  collection.find(query.criteria.where, {_id: 1}).toArray(function(err, records) {
+    if(err) return cb(err);
+    if(!records) return cb(Errors.NotFound);
+
+    // Build an array of records
+    var updatedRecords = [];
+
+    records.forEach(function(record) {
+      updatedRecords.push(record._id);
+    });
+
+    // Update the records
+    collection.update(query.criteria.where, { &#x27;$set&#x27;: values }, { multi: true }, function(err, result) {
+      if(err) return cb(err);
+
+      // Look up newly inserted records to return the results of the update
+      collection.find({ _id: { &#x27;$in&#x27;: updatedRecords }}).toArray(function(err, records) {
+        if(err) return cb(err);
+        cb(null, utils.rewriteIds(records, self.schema));
+      });
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    var updatedRecords = [];
+
+    records.forEach(function(record) {
+updatedRecords.push(record._id);
+    });
+
+    // Update the records
+    collection.<span class="apidocCodeKeywordSpan">update</span>(query.criteria.where, { &#x27;$set&#x27;: values }, { multi: true
+ }, function(err, result) {
+if(err) return cb(err);
+
+// Look up newly inserted records to return the results of the update
+collection.find({ _id: { &#x27;$in&#x27;: updatedRecords }}).toArray(function(err, records) {
+  if(err) return cb(err);
+  cb(null, utils.rewriteIds(records, self.schema));
+});
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-mongo.connection" id="apidoc.module.sails-mongo.connection">module sails-mongo.connection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.connection.connection" id="apidoc.element.sails-mongo.connection.connection">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>connection
+        <span class="apidocSignatureSpan">(config, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Connection(config, cb) {
+  var self = this;
+
+  // Hold the config object
+  this.config = config || {};
+
+  // Build Database connection
+  this._buildConnection(function(err, db) {
+    if(err) return cb(err);
+    if(!db) return cb(new Error(&#x27;no db object&#x27;));
+
+    // Store the DB object
+    self.db = db;
+
+    // Return the connection
+    cb(null, self);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-mongo.connection.prototype" id="apidoc.module.sails-mongo.connection.prototype">module sails-mongo.connection.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.connection.prototype._buildConnection" id="apidoc.element.sails-mongo.connection.prototype._buildConnection">
+        function <span class="apidocSignatureSpan">sails-mongo.connection.prototype.</span>_buildConnection
+        <span class="apidocSignatureSpan">(cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _buildConnection(cb) {
+
+  // Set the configured options
+  var connectionOptions = {};
+
+  connectionOptions.mongos = this.config.mongos || {};
+  connectionOptions.replSet = this.config.replSet || {};
+
+  // Build up options used for creating a Server instance
+  connectionOptions.server = {
+    readPreference: this.config.readPreference,
+    ssl: this.config.ssl,
+    sslValidate: this.config.sslValidate,
+    sslCA: this.config.sslCA,
+    sslCert: this.config.sslCert,
+    sslKey: this.config.sslKey,
+    poolSize: this.config.poolSize,
+    socketOptions: this.config.socketOptions,
+    autoReconnect: this.config.auto_reconnect,
+    disableDriverBSONSizeCheck: this.config.disableDriverBSONSizeCheck,
+    reconnectInterval: this.config.reconnectInterval,
+    reconnectTries: this.config.reconnectTries
+  };
+
+  // Build up options used for creating a Database instance
+  connectionOptions.db = {
+    w: this.config.w,
+    wtimeout: this.config.wtimeout,
+    fsync: this.config.fsync,
+    journal: this.config.journal,
+    readPreference: this.config.readPreference,
+    native_parser: this.config.nativeParser,
+    forceServerObjectId: this.config.forceServerObjectId,
+    recordQueryStats: this.config.recordQueryStats,
+    retryMiliSeconds: this.config.retryMiliSeconds,
+    numberOfRetries: this.config.numberOfRetries
+  };
+
+  // Support for encoded auth credentials
+  connectionOptions.uri_decode_auth = this.config.uri_decode_auth || false;
+
+  // Build A Mongo Connection String
+  var connectionString = &#x27;mongodb://&#x27;;
+
+  // If auth is used, append it to the connection string
+  if(this.config.user &#x26;&#x26; this.config.password) {
+
+    // Ensure a database was set if auth in enabled
+    if(!this.config.database) {
+      throw new Error(&#x27;The MongoDB Adapter requires a database config option if authentication is used.&#x27;);
+    }
+
+    connectionString += this.config.user + &#x27;:&#x27; + this.config.password + &#x27;@&#x27;;
+  }
+
+  // Append the host and port
+  connectionString += this.config.host + &#x27;:&#x27; + this.config.port + &#x27;/&#x27;;
+
+  if(this.config.database) {
+    connectionString += this.config.database;
+  }
+
+  // Use config connection string if available
+  if(this.config.url) connectionString = this.config.url;
+
+  // Open a Connection
+  MongoClient.connect(connectionString, connectionOptions, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var Connection = module.exports = function Connection(config, cb) {
+  var self = this;
+
+  // Hold the config object
+  this.config = config || {};
+
+  // Build Database connection
+  this.<span class="apidocCodeKeywordSpan">_buildConnection</span>(function(err, db) {
+if(err) return cb(err);
+if(!db) return cb(new Error(&#x27;no db object&#x27;));
+
+// Store the DB object
+self.db = db;
+
+// Return the connection
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.connection.prototype._ensureIndexes" id="apidoc.element.sails-mongo.connection.prototype._ensureIndexes">
+        function <span class="apidocSignatureSpan">sails-mongo.connection.prototype.</span>_ensureIndexes
+        <span class="apidocSignatureSpan">(collection, indexes, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _ensureIndexes(collection, indexes, cb) {
+  var self = this;
+
+  function createIndex(item, next) {
+    collection.ensureIndex(item.index, item.options, next);
+  }
+
+  async.each(indexes, createIndex, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ var self = this;
+
+ // Create the Collection
+ this.db.createCollection(name, function(err, result) {
+   if(err) return cb(err);
+
+   // Create Indexes
+   self.<span class="apidocCodeKeywordSpan">_ensureIndexes</span>(result, collection.indexes, cb);
+ });
+};
+
+/**
+* Drop A Collection
+*
+* @param {String} name
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.connection.prototype.createCollection" id="apidoc.element.sails-mongo.connection.prototype.createCollection">
+        function <span class="apidocSignatureSpan">sails-mongo.connection.prototype.</span>createCollection
+        <span class="apidocSignatureSpan">(name, collection, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createCollection(name, collection, cb) {
+  var self = this;
+
+  // Create the Collection
+  this.db.createCollection(name, function(err, result) {
+    if(err) return cb(err);
+
+    // Create Indexes
+    self._ensureIndexes(result, collection.indexes, cb);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @api public
+ */
+
+Connection.prototype.createCollection = function createCollection(name, collection, cb) {
+  var self = this;
+
+  // Create the Collection
+  this.db.<span class="apidocCodeKeywordSpan">createCollection</span>(name, function(err, result) {
+    if(err) return cb(err);
+
+    // Create Indexes
+    self._ensureIndexes(result, collection.indexes, cb);
+  });
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.connection.prototype.dropCollection" id="apidoc.element.sails-mongo.connection.prototype.dropCollection">
+        function <span class="apidocSignatureSpan">sails-mongo.connection.prototype.</span>dropCollection
+        <span class="apidocSignatureSpan">(name, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function dropCollection(name, cb) {
+  this.db.dropCollection(name, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ * @param {String} name
+ * @param {Function} callback
+ * @api public
+ */
+
+Connection.prototype.dropCollection = function dropCollection(name, cb) {
+  this.db.<span class="apidocCodeKeywordSpan">dropCollection</span>(name, cb);
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////
+// PRIVATE METHODS
+/////////////////////////////////////////////////////////////////////////////////
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-mongo.document" id="apidoc.module.sails-mongo.document">module sails-mongo.document</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.document.document" id="apidoc.element.sails-mongo.document.document">
+        function <span class="apidocSignatureSpan">sails-mongo.</span>document
+        <span class="apidocSignatureSpan">(values, schema)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Document(values, schema) {
+
+  // Keep track of the current document&#x27;s values
+  this.values = {};
+
+  // Grab the schema for normalizing values
+  this.schema = schema || {};
+
+  // If values were passed in, use the setter
+  if(values) this.values = this.setValues(values);
+
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-mongo.document.prototype" id="apidoc.module.sails-mongo.document.prototype">module sails-mongo.document.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.document.prototype.normalizeId" id="apidoc.element.sails-mongo.document.prototype.normalizeId">
+        function <span class="apidocSignatureSpan">sails-mongo.document.prototype.</span>normalizeId
+        <span class="apidocSignatureSpan">(values)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function normalizeId(values) {
+
+  if(!values.id) return;
+
+  // Check if data.id looks like a MongoID
+  if(_.isString(values.id) &#x26;&#x26; values.id.match(/^[a-fA-F0-9]{24}$/)) {
+
+    values._id = new ObjectId.createFromHexString(values.id);
+  } else {
+
+    values._id = _.cloneDeep(values.id);
+  }
+
+  delete values.id;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* @param {Object} values
+* @return {Object}
+* @api private
+*/
+
+Document.prototype.setValues = function setValues(values) {
+ this.serializeValues(values);
+ this.<span class="apidocCodeKeywordSpan">normalizeId</span>(values);
+
+ return values;
+};
+
+/**
+* Normalize ID&#x27;s
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.document.prototype.serializeValues" id="apidoc.element.sails-mongo.document.prototype.serializeValues">
+        function <span class="apidocSignatureSpan">sails-mongo.document.prototype.</span>serializeValues
+        <span class="apidocSignatureSpan">(values)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function serializeValues(values) {
+  var self = this;
+
+  Object.keys(values).forEach(function(key) {
+    if(!hasOwnProperty(self.schema, key)) return;
+
+    var type = self.schema[key].type,
+        val;
+
+    var foreignKey = self.schema[key].foreignKey || false;
+
+    if(_.isUndefined(values[key])) return;
+
+    // If a foreignKey, check if value matches a mongo id and if so turn it into an objectId
+    if(foreignKey &#x26;&#x26; utils.matchMongoId(values[key])) {
+      values[key] = new ObjectId.createFromHexString(values[key]);
+    }
+
+    if(type === &#x27;json&#x27;) {
+      try {
+        val = JSON.parse(values[key]);
+      } catch(e) {
+        return;
+      }
+      values[key] = val;
+    }
+  });
+
+  return values;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+* @param {Object} values
+* @return {Object}
+* @api private
+*/
+
+Document.prototype.setValues = function setValues(values) {
+ this.<span class="apidocCodeKeywordSpan">serializeValues</span>(values);
+ this.normalizeId(values);
+
+ return values;
+};
+
+/**
+* Normalize ID&#x27;s
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.document.prototype.setValues" id="apidoc.element.sails-mongo.document.prototype.setValues">
+        function <span class="apidocSignatureSpan">sails-mongo.document.prototype.</span>setValues
+        <span class="apidocSignatureSpan">(values)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setValues(values) {
+  this.serializeValues(values);
+  this.normalizeId(values);
+
+  return values;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Keep track of the current document&#x27;s values
+  this.values = {};
+
+  // Grab the schema for normalizing values
+  this.schema = schema || {};
+
+  // If values were passed in, use the setter
+  if(values) this.values = this.<span class="apidocCodeKeywordSpan">setValues</span>(values);
+
+  return this;
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////
+// PRIVATE METHODS
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-mongo.mongo" id="apidoc.module.sails-mongo.mongo">module sails-mongo.mongo</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.mongo.objectId" id="apidoc.element.sails-mongo.mongo.objectId">
+        function <span class="apidocSignatureSpan">sails-mongo.mongo.</span>objectId
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">objectId = function (id){
+  if(!id) return null;
+  try {
+    return new ObjectId(id);
+  } catch(err) {
+    return null;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-mongo.utils" id="apidoc.module.sails-mongo.utils">module sails-mongo.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.utils._rewriteIds" id="apidoc.element.sails-mongo.utils._rewriteIds">
+        function <span class="apidocSignatureSpan">sails-mongo.utils.</span>_rewriteIds
+        <span class="apidocSignatureSpan">(model, schema)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_rewriteIds = function (model, schema) {
+  if (hop.call(model, &#x27;_id&#x27;)) {
+    // change id to string only if it&#x27;s necessary
+    if (typeof model._id === &#x27;object&#x27; &#x26;&#x26; model._id._bsontype)
+      model.id = model._id.toString();
+    else
+      model.id = model._id;
+    delete model._id;
+  }
+
+  // Rewrite any foreign keys if a schema is available
+  if (!schema) return model;
+
+  Object.keys(schema).forEach(function (key) {
+    var foreignKey = schema[key].foreignKey || false;
+
+    // If a foreignKey, check if value matches a mongo id and if so turn it into an objectId
+    if (foreignKey &#x26;&#x26; model[key] instanceof ObjectId) {
+      model[key] = model[key].toString();
+    }
+  });
+
+  return model;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+* @param {Array} models
+* @api public
+*/
+
+exports.rewriteIds = function rewriteIds(models, schema) {
+ var _models = models.map(function(model){
+   return exports.<span class="apidocCodeKeywordSpan">_rewriteIds</span>(model, schema);
+ });
+ return _models;
+};
+
+/**
+* Normalize documents retrieved from MongoDB to match Waterline&#x27;s expectations
+*
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.utils.caseInsensitive" id="apidoc.element.sails-mongo.utils.caseInsensitive">
+        function <span class="apidocSignatureSpan">sails-mongo.utils.</span>caseInsensitive
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function caseInsensitive(val) {
+  if(!_.isString(val)) return val;
+  return val.replace(/[-[\]{}()+?*.\/,\\^$|#]/g, &#x22;\\$&#x26;&#x22;);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.utils.clarifyError" id="apidoc.element.sails-mongo.utils.clarifyError">
+        function <span class="apidocSignatureSpan">sails-mongo.utils.</span>clarifyError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function clarifyError(err) {
+  // MongoDB duplicate key error code
+  if(err.code !== 11000) {
+    return err;
+  }
+
+  // Example errmsg: `E11000 duplicate key error index: db_name.model_name.$attribute_name_1 dup key: { : &#x22;value&#x22; }`
+  var matches = /E11000 duplicate key error index: .*?\..*?\.\$(.*?)_\d+\s+dup key: { : (.*) }$/.exec(err.errmsg);
+  if (!matches) {
+    // Example errmsg: E11000 duplicate key error collection: db_name.model_name index: attribute_name_1 dup key: { : &#x22;value&#x22; }
+    matches = /E11000 duplicate key error collection: .*?\..*? index: (.*?)_\d+\s+dup key: { : (.*) }$/.exec(err.errmsg);
+    if (!matches) {
+      // We cannot parse error message, return original error
+      return err;
+    }
+  }
+  var fieldName = matches[1]; // name of index (without _[digits] at the end)
+  var value;
+  try {
+    value = JSON.parse(matches[2]); // attempt to convert the value to a primitive representation
+  } catch (x) {
+    value = matches[2]; // for non-serializable objects (e.g. ObjectId representations), return as-is
+  }
+
+  var validationError = {
+    code: &#x27;E_UNIQUE&#x27;,
+    invalidAttributes: {},
+    originalError: err
+  };
+
+  validationError.invalidAttributes[fieldName] = [
+    {
+      rule: &#x27;unique&#x27;,
+      value: value
+    }
+  ];
+
+  return validationError;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.utils.matchMongoId" id="apidoc.element.sails-mongo.utils.matchMongoId">
+        function <span class="apidocSignatureSpan">sails-mongo.utils.</span>matchMongoId
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function matchMongoId(id) {
+  if (id === null) return false;
+  var test = _.cloneDeep(id);
+  if(typeof test.toString !== &#x27;undefined&#x27;) test = id.toString();
+  return test.match(/^[a-fA-F0-9]{24}$/) ? true : false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    val;
+
+var foreignKey = self.schema[key].foreignKey || false;
+
+if(_.isUndefined(values[key])) return;
+
+// If a foreignKey, check if value matches a mongo id and if so turn it into an objectId
+if(foreignKey &#x26;&#x26; utils.<span class="apidocCodeKeywordSpan">matchMongoId</span>(values[key])) {
+  values[key] = new ObjectId.createFromHexString(values[key]);
+}
+
+if(type === &#x27;json&#x27;) {
+  try {
+    val = JSON.parse(values[key]);
+  } catch(e) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.utils.normalizeResults" id="apidoc.element.sails-mongo.utils.normalizeResults">
+        function <span class="apidocSignatureSpan">sails-mongo.utils.</span>normalizeResults
+        <span class="apidocSignatureSpan">(models, schema)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function normalizeResults(models, schema) {
+  var _models = models.map(function (model) {
+    var _model = exports._rewriteIds(model, schema);
+    Object.keys(_model).forEach(function (key) {
+      if (model[key] instanceof MongoBinary &#x26;&#x26; _.has(_model[key], &#x27;buffer&#x27;)) {
+        _model[key] = _model[key].buffer;
+      }
+    });
+    return _model;
+  });
+  return _models;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ var where = query.criteria.where || {};
+ var queryOptions = _.omit(query.criteria, &#x27;where&#x27;);
+
+ // Run Normal Query on collection
+ collection.find(where, query.select, queryOptions).toArray(function(err, docs) {
+   if(err) return cb(err);
+   cb(null, utils.<span class="apidocCodeKeywordSpan">normalizeResults</span>(docs, self.schema));
+ });
+};
+
+/**
+* Stream Documents
+*
+* @param {Object} criteria
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.utils.parseUrl" id="apidoc.element.sails-mongo.utils.parseUrl">
+        function <span class="apidocSignatureSpan">sails-mongo.utils.</span>parseUrl
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseUrl(config) {
+  if(!_.isString(config.url)) return config;
+
+  var obj = url.parse(config.url);
+
+  config.host = obj.hostname || config.host;
+  config.port = obj.port || config.port;
+
+  if(_.isString(obj.path)) {
+    config.database = obj.path.split(&#x22;/&#x22;)[1] || config.database;
+  }
+
+  if(_.isString(obj.auth)) {
+    config.user = obj.auth.split(&#x22;:&#x22;)[0] || config.user;
+    config.password = obj.auth.split(&#x22;:&#x22;)[1] || config.password;
+  }
+
+  return config;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-mongo.utils.rewriteIds" id="apidoc.element.sails-mongo.utils.rewriteIds">
+        function <span class="apidocSignatureSpan">sails-mongo.utils.</span>rewriteIds
+        <span class="apidocSignatureSpan">(models, schema)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function rewriteIds(models, schema) {
+  var _models = models.map(function(model){
+    return exports._rewriteIds(model, schema);
+  });
+  return _models;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var dbStream = collection.find(where, queryOptions).stream();
+
+// For each data item
+dbStream.on(&#x27;data&#x27;, function(item) {
+  // Pause stream
+  dbStream.pause();
+
+  var obj = utils.<span class="apidocCodeKeywordSpan">rewriteIds</span>([item], self.schema)[0];
+
+  stream.write(obj, function() {
+    dbStream.resume();
+  });
+
+});
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
