@@ -1,29 +1,29 @@
 <svg height="414" width="720" xmlns="http://www.w3.org/2000/svg">
 <rect height="414" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">  0.  2017-04-07 22:22:20 +0000    87629 bytes  .</tspan>
-<tspan x="10" y="42">  1.  2017-04-07 22:22:20 +0000     1759 bytes  CHANGELOG.md</tspan>
-<tspan x="10" y="58">  2.  2017-04-07 22:22:20 +0000      100 bytes  Dockerfile</tspan>
-<tspan x="10" y="74">  3.  2017-04-07 22:22:20 +0000      536 bytes  Makefile</tspan>
-<tspan x="10" y="90">  4.  2017-04-07 22:22:20 +0000     6739 bytes  README.md</tspan>
-<tspan x="10" y="106">  5.  2017-04-07 22:22:20 +0000     1873 bytes  appveyor.yml</tspan>
-<tspan x="10" y="122">  6.  2017-04-07 22:22:20 +0000      178 bytes  docker-compose.yml</tspan>
-<tspan x="10" y="138">  7.  2017-04-07 22:22:20 +0000    14904 bytes  lib/adapter.js</tspan>
-<tspan x="10" y="154">  8.  2017-04-07 22:22:20 +0000    10497 bytes  lib/collection.js</tspan>
-<tspan x="10" y="170">  9.  2017-04-07 22:22:20 +0000     4501 bytes  lib/connection.js</tspan>
-<tspan x="10" y="186"> 10.  2017-04-07 22:22:20 +0000     2528 bytes  lib/document.js</tspan>
-<tspan x="10" y="202"> 11.  2017-04-07 22:22:20 +0000     1969 bytes  lib/query/aggregate.js</tspan>
-<tspan x="10" y="218"> 12.  2017-04-07 22:22:20 +0000    11101 bytes  lib/query/index.js</tspan>
-<tspan x="10" y="234"> 13.  2017-04-07 22:22:20 +0000     5308 bytes  lib/utils.js</tspan>
-<tspan x="10" y="250"> 14.  2017-04-07 22:22:20 +0000     3476 bytes  package.json</tspan>
-<tspan x="10" y="266"> 15.  2017-04-07 22:22:20 +0000     3279 bytes  test/integration/runner.js</tspan>
-<tspan x="10" y="282"> 16.  2017-04-07 22:22:20 +0000     1372 bytes  test/load/loadTest.js</tspan>
-<tspan x="10" y="298"> 17.  2017-04-07 22:22:20 +0000      501 bytes  test/support/bootstrap.js</tspan>
-<tspan x="10" y="314"> 18.  2017-04-07 22:22:20 +0000      298 bytes  test/support/config.js</tspan>
-<tspan x="10" y="330"> 19.  2017-04-07 22:22:20 +0000      256 bytes  test/support/fixture.js</tspan>
-<tspan x="10" y="346"> 20.  2017-04-07 22:22:20 +0000     1158 bytes  test/unit/adapter.native.js</tspan>
-<tspan x="10" y="362"> 21.  2017-04-07 22:22:20 +0000     1690 bytes  test/unit/adapter.query.OR.test.js</tspan>
-<tspan x="10" y="378"> 22.  2017-04-07 22:22:20 +0000     8732 bytes  test/unit/query/adapter.query.test.js</tspan>
-<tspan x="10" y="394"> 23.  2017-04-07 22:22:20 +0000     4874 bytes  test/unit/utils.clarifyError.test.js</tspan>
+<tspan x="10" y="26">  0.  2017-04-07 22:23:55 +0000    87629 bytes  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-07 22:23:55 +0000     1759 bytes  CHANGELOG.md</tspan>
+<tspan x="10" y="58">  2.  2017-04-07 22:23:55 +0000      100 bytes  Dockerfile</tspan>
+<tspan x="10" y="74">  3.  2017-04-07 22:23:55 +0000      536 bytes  Makefile</tspan>
+<tspan x="10" y="90">  4.  2017-04-07 22:23:55 +0000     6739 bytes  README.md</tspan>
+<tspan x="10" y="106">  5.  2017-04-07 22:23:55 +0000     1873 bytes  appveyor.yml</tspan>
+<tspan x="10" y="122">  6.  2017-04-07 22:23:55 +0000      178 bytes  docker-compose.yml</tspan>
+<tspan x="10" y="138">  7.  2017-04-07 22:23:55 +0000    14904 bytes  lib/adapter.js</tspan>
+<tspan x="10" y="154">  8.  2017-04-07 22:23:55 +0000    10497 bytes  lib/collection.js</tspan>
+<tspan x="10" y="170">  9.  2017-04-07 22:23:55 +0000     4501 bytes  lib/connection.js</tspan>
+<tspan x="10" y="186"> 10.  2017-04-07 22:23:55 +0000     2528 bytes  lib/document.js</tspan>
+<tspan x="10" y="202"> 11.  2017-04-07 22:23:55 +0000     1969 bytes  lib/query/aggregate.js</tspan>
+<tspan x="10" y="218"> 12.  2017-04-07 22:23:55 +0000    11101 bytes  lib/query/index.js</tspan>
+<tspan x="10" y="234"> 13.  2017-04-07 22:23:55 +0000     5308 bytes  lib/utils.js</tspan>
+<tspan x="10" y="250"> 14.  2017-04-07 22:23:55 +0000     3476 bytes  package.json</tspan>
+<tspan x="10" y="266"> 15.  2017-04-07 22:23:55 +0000     3279 bytes  test/integration/runner.js</tspan>
+<tspan x="10" y="282"> 16.  2017-04-07 22:23:55 +0000     1372 bytes  test/load/loadTest.js</tspan>
+<tspan x="10" y="298"> 17.  2017-04-07 22:23:55 +0000      501 bytes  test/support/bootstrap.js</tspan>
+<tspan x="10" y="314"> 18.  2017-04-07 22:23:55 +0000      298 bytes  test/support/config.js</tspan>
+<tspan x="10" y="330"> 19.  2017-04-07 22:23:55 +0000      256 bytes  test/support/fixture.js</tspan>
+<tspan x="10" y="346"> 20.  2017-04-07 22:23:55 +0000     1158 bytes  test/unit/adapter.native.js</tspan>
+<tspan x="10" y="362"> 21.  2017-04-07 22:23:55 +0000     1690 bytes  test/unit/adapter.query.OR.test.js</tspan>
+<tspan x="10" y="378"> 22.  2017-04-07 22:23:55 +0000     8732 bytes  test/unit/query/adapter.query.test.js</tspan>
+<tspan x="10" y="394"> 23.  2017-04-07 22:23:55 +0000     4874 bytes  test/unit/utils.clarifyError.test.js</tspan>
 </text>
 </svg>
